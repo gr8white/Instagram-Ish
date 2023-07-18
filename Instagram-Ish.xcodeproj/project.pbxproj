@@ -23,6 +23,8 @@
 		1B4187512A662E4400B22DD9 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187502A662E4400B22DD9 /* FeedCell.swift */; };
 		1B4187532A67378D00B22DD9 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187522A67378D00B22DD9 /* SearchBar.swift */; };
 		1B4187552A6739DC00B22DD9 /* PostGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187542A6739DC00B22DD9 /* PostGridView.swift */; };
+		1B4187572A673B9C00B22DD9 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187562A673B9C00B22DD9 /* UserCell.swift */; };
+		1B4187592A673BA800B22DD9 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187582A673BA800B22DD9 /* UserListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		1B4187502A662E4400B22DD9 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		1B4187522A67378D00B22DD9 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		1B4187542A6739DC00B22DD9 /* PostGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridView.swift; sourceTree = "<group>"; };
+		1B4187562A673B9C00B22DD9 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		1B4187582A673BA800B22DD9 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +270,8 @@
 			isa = PBXGroup;
 			children = (
 				1B4187542A6739DC00B22DD9 /* PostGridView.swift */,
+				1B4187562A673B9C00B22DD9 /* UserCell.swift */,
+				1B4187582A673BA800B22DD9 /* UserListView.swift */,
 			);
 			path = SharedItems;
 			sourceTree = "<group>";
@@ -436,9 +442,11 @@
 				1B4187452A6629B900B22DD9 /* MainTabView.swift in Sources */,
 				1B41874F2A662A5400B22DD9 /* UploadPostView.swift in Sources */,
 				1B41874D2A662A4900B22DD9 /* ProfileView.swift in Sources */,
+				1B4187572A673B9C00B22DD9 /* UserCell.swift in Sources */,
 				1B4187532A67378D00B22DD9 /* SearchBar.swift in Sources */,
 				1B41874B2A662A4000B22DD9 /* NotificationsView.swift in Sources */,
 				1B4187512A662E4400B22DD9 /* FeedCell.swift in Sources */,
+				1B4187592A673BA800B22DD9 /* UserListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
