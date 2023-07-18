@@ -26,6 +26,7 @@
 		1B4187572A673B9C00B22DD9 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187562A673B9C00B22DD9 /* UserCell.swift */; };
 		1B4187592A673BA800B22DD9 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187582A673BA800B22DD9 /* UserListView.swift */; };
 		1B41875B2A6741CB00B22DD9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41875A2A6741CB00B22DD9 /* Extensions.swift */; };
+		1B41875D2A67459300B22DD9 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41875C2A67459300B22DD9 /* NotificationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		1B4187562A673B9C00B22DD9 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		1B4187582A673BA800B22DD9 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		1B41875A2A6741CB00B22DD9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1B41875C2A67459300B22DD9 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				1B41874A2A662A4000B22DD9 /* NotificationsView.swift */,
+				1B41875C2A67459300B22DD9 /* NotificationCell.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				1B41874B2A662A4000B22DD9 /* NotificationsView.swift in Sources */,
 				1B4187512A662E4400B22DD9 /* FeedCell.swift in Sources */,
 				1B4187592A673BA800B22DD9 /* UserListView.swift in Sources */,
+				1B41875D2A67459300B22DD9 /* NotificationCell.swift in Sources */,
 				1B41875B2A6741CB00B22DD9 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
