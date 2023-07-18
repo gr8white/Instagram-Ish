@@ -10,7 +10,6 @@ import SwiftUI
 struct FeedCell: View {
     var body: some View {
         VStack(alignment: .leading) {
-            // User Info
             HStack {
                 Image(systemName: "house")
                     .resizable()
@@ -22,63 +21,60 @@ struct FeedCell: View {
                 Text("Joker")
                     .font(.system(size: 14, weight: .semibold))
             }
+            .padding([.bottom, .leading], 8)
             
-            // Post Image
             Image(systemName: "house")
                 .resizable()
                 .scaledToFill()
                 .frame(maxHeight: 340)
-//                .clipped()
             
-            // Action Buttons
-            HStack(spacing: 8) {
-                Button {
+            VStack(alignment: .leading, spacing: 3){
+                HStack(spacing: 16) {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "heart")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 20, height: 20)
+                            .font(.system(size: 20))
+                    }
                     
-                } label: {
-                    Image(systemName: "heart")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 28, height: 28)
-                        .font(.system(size: 20))
-                        .padding(4)
-                }
-                
-                Button {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "bubble.right")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 20, height: 20)
+                            .font(.system(size: 20))
+                    }
                     
-                } label: {
-                    Image(systemName: "bubble.right")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 28, height: 28)
-                        .font(.system(size: 20))
-                        .padding(4)
-                }
-                
-                Button {
-                    
-                } label: {
-                    Image(systemName: "paperplane")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 28, height: 28)
-                        .font(.system(size: 20))
-                        .padding(4)
-                }
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "paperplane")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 20, height: 20)
+                            .font(.system(size: 20))
+                    }
 
-            }
-            .foregroundColor(.black)
-            
-            // Caption
-            HStack {
+                }
+                .foregroundColor(.black)
+                .padding(.vertical, 4)
+                
+                Text("3 likes")
+                    .font(.system(size: 14, weight: .semibold))
+                
                 Text("batman").font(.system(size: 14, weight: .semibold)) + Text(" ") +  Text("All men have limits. They learn what they are and learn not to eceed them. I ignor mine.").font(.system(size: 15))
+                
+                Text("2d")
+                    .font(.system(size: 14))
+                    .foregroundColor(.gray)
             }
-            
-            Text("2d")
-                .font(.system(size: 14))
-                .foregroundColor(.gray)
-                .padding(.top)
+            .padding(.horizontal, 8)
         }
-        .padding()
     }
 }
 
