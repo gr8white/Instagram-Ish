@@ -35,18 +35,7 @@ struct ProfileHeaderView: View {
                 .font(.system(size: 15))
                 .padding(.top, 1)
             
-            Button {
-                
-            } label: {
-                Text("Edit Profile")
-                    .font(.system(size: 14, weight: .semibold))
-                    .frame(width: 360, height: 32)
-                    .foregroundColor(.black)
-                    .overlay (
-                        RoundedRectangle(cornerRadius: 3)
-                            .stroke(Color.gray, lineWidth: 1)
-                    )
-            }
+            ProfileActionButton()
 
         }
         .padding(.horizontal)
