@@ -27,6 +27,9 @@
 		1B4187592A673BA800B22DD9 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187582A673BA800B22DD9 /* UserListView.swift */; };
 		1B41875B2A6741CB00B22DD9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41875A2A6741CB00B22DD9 /* Extensions.swift */; };
 		1B41875D2A67459300B22DD9 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41875C2A67459300B22DD9 /* NotificationCell.swift */; };
+		1B41875F2A674A7C00B22DD9 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41875E2A674A7C00B22DD9 /* ProfileHeaderView.swift */; };
+		1B4187612A674F6100B22DD9 /* UserStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187602A674F6100B22DD9 /* UserStatView.swift */; };
+		1B4187632A6750C000B22DD9 /* ProfileActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187622A6750C000B22DD9 /* ProfileActionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,9 @@
 		1B4187582A673BA800B22DD9 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		1B41875A2A6741CB00B22DD9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1B41875C2A67459300B22DD9 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		1B41875E2A674A7C00B22DD9 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		1B4187602A674F6100B22DD9 /* UserStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatView.swift; sourceTree = "<group>"; };
+		1B4187622A6750C000B22DD9 /* ProfileActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +233,9 @@
 			isa = PBXGroup;
 			children = (
 				1B41874C2A662A4900B22DD9 /* ProfileView.swift */,
+				1B4187622A6750C000B22DD9 /* ProfileActionButton.swift */,
+				1B41875E2A674A7C00B22DD9 /* ProfileHeaderView.swift */,
+				1B4187602A674F6100B22DD9 /* UserStatView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -443,11 +452,14 @@
 				1B4187492A662A0C00B22DD9 /* SearchView.swift in Sources */,
 				1B4187472A6629F000B22DD9 /* FeedView.swift in Sources */,
 				1B4187552A6739DC00B22DD9 /* PostGridView.swift in Sources */,
+				1B4187632A6750C000B22DD9 /* ProfileActionButton.swift in Sources */,
 				1B4187052A6627BF00B22DD9 /* Instagram_IshApp.swift in Sources */,
 				1B41873F2A66290800B22DD9 /* ContentView.swift in Sources */,
 				1B4187452A6629B900B22DD9 /* MainTabView.swift in Sources */,
 				1B41874F2A662A5400B22DD9 /* UploadPostView.swift in Sources */,
+				1B41875F2A674A7C00B22DD9 /* ProfileHeaderView.swift in Sources */,
 				1B41874D2A662A4900B22DD9 /* ProfileView.swift in Sources */,
+				1B4187612A674F6100B22DD9 /* UserStatView.swift in Sources */,
 				1B4187572A673B9C00B22DD9 /* UserCell.swift in Sources */,
 				1B4187532A67378D00B22DD9 /* SearchBar.swift in Sources */,
 				1B41874B2A662A4000B22DD9 /* NotificationsView.swift in Sources */,
