@@ -11,22 +11,23 @@ struct FeedCell: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image(systemName: "house")
+                Image("batman")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 36, height: 36)
                     .clipped()
                     .cornerRadius(18)
                 
-                Text("Joker")
+                Text("batman")
                     .font(.system(size: 14, weight: .semibold))
             }
             .padding([.bottom, .leading], 8)
             
-            Image(systemName: "house")
+            Image("batman")
                 .resizable()
                 .scaledToFill()
                 .frame(maxHeight: 340)
+                .clipped()
             
             VStack(alignment: .leading, spacing: 3){
                 HStack(spacing: 16) {
@@ -67,7 +68,7 @@ struct FeedCell: View {
                 Text("3 likes")
                     .font(.system(size: 14, weight: .semibold))
                 
-                Text("batman").font(.system(size: 14, weight: .semibold)) + Text(" ") +  Text("All men have limits. They learn what they are and learn not to eceed them. I ignor mine.").font(.system(size: 15))
+                Text("batman").font(.system(size: 14, weight: .semibold)) + Text(" ") +  Text("All men have limits. They learn what they are and learn not to exceed them. I ignore mine.").font(.system(size: 15))
                 
                 Text("2d")
                     .font(.system(size: 14))
@@ -81,5 +82,7 @@ struct FeedCell: View {
 struct FeedCell_Previews: PreviewProvider {
     static var previews: some View {
         FeedCell()
+            .previewLayout(.sizeThatFits)
+            .padding()
     }
 }
