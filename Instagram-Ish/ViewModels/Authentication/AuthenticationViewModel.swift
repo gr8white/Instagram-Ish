@@ -19,6 +19,8 @@ class AuthenticationViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     
+    static let shared = AuthenticationViewModel()
+    
     init() {
         self.userSession = Auth.auth().currentUser
         
@@ -43,20 +45,31 @@ class AuthenticationViewModel: ObservableObject {
                 Task {
                     try await Task.sleep(for:.seconds(1))
                     
-                    strongSelf.userSession = authResult.user
+                    DispatchQueue.main.async {
+                        strongSelf.userSession = authResult.user
+                    }
                     
                     let user = User(id: authResult.user.uid, email: email, fullName: fullName)
                     
                     let encodedUser = try Firestore.Encoder().encode(user)
                     
                     try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+                    
                     await strongSelf.fetchUser()
                 }
             }
         }
     }
     
-    func signOut() { }
+    func signOut(completion: @escaping (AuthRequestState) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            self.userSession = nil
+            self.currentUser = nil
+        } catch {
+            completion(.error(.internalError))
+        }
+    }
     
     func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else { return }

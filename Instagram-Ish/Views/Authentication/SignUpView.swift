@@ -82,7 +82,7 @@ struct SignUpView: View {
                             .font(.caption)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
-                            .foregroundColor(.red)
+                            .foregroundColor(.white)
                     }
                 }
                 .padding(.top, 48)

@@ -17,7 +17,7 @@ struct Instagram_IshApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(AuthenticationViewModel())
+                .environmentObject(AuthenticationViewModel.shared)
         }
     }
 }

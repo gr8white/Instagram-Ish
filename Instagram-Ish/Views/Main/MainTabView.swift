@@ -38,8 +38,21 @@ struct MainTabView: View {
             }
             .navigationTitle("Home")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading: logOutButton)
             .accentColor(.black)
         }
+    }
+    
+    var logOutButton: some View {
+        Button {
+            AuthenticationViewModel.shared.signOut() { signOutState in
+                print(signOutState)
+            }
+        } label: {
+            Text("Sign Out")
+                .foregroundColor(.black)
+        }
+
     }
 }
 
