@@ -30,6 +30,7 @@
 		1B41875F2A674A7C00B22DD9 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41875E2A674A7C00B22DD9 /* ProfileHeaderView.swift */; };
 		1B4187612A674F6100B22DD9 /* UserStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187602A674F6100B22DD9 /* UserStatView.swift */; };
 		1B4187632A6750C000B22DD9 /* ProfileActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187622A6750C000B22DD9 /* ProfileActionButton.swift */; };
+		1B4187652A68A7FC00B22DD9 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187642A68A7FC00B22DD9 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		1B41875E2A674A7C00B22DD9 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		1B4187602A674F6100B22DD9 /* UserStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatView.swift; sourceTree = "<group>"; };
 		1B4187622A6750C000B22DD9 /* ProfileActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButton.swift; sourceTree = "<group>"; };
+		1B4187642A68A7FC00B22DD9 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				1B41875A2A6741CB00B22DD9 /* Extensions.swift */,
+				1B4187642A68A7FC00B22DD9 /* ImagePicker.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				1B4187052A6627BF00B22DD9 /* Instagram_IshApp.swift in Sources */,
 				1B41873F2A66290800B22DD9 /* ContentView.swift in Sources */,
 				1B4187452A6629B900B22DD9 /* MainTabView.swift in Sources */,
+				1B4187652A68A7FC00B22DD9 /* ImagePicker.swift in Sources */,
 				1B41874F2A662A5400B22DD9 /* UploadPostView.swift in Sources */,
 				1B41875F2A674A7C00B22DD9 /* ProfileHeaderView.swift in Sources */,
 				1B41874D2A662A4900B22DD9 /* ProfileView.swift in Sources */,
