@@ -8,21 +8,15 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @State private var email: String = ""
-    @State private var firstName: String = ""
-    @State private var lastName: String = ""
-    @State private var password: String = ""
-    @State private var imagePickerPresented: Bool = false
-    @State private var selectedImage: UIImage?
-    @State private var userImage: Image?
+    @ObservedObject var viewModel = SignUpViewModel()
     @EnvironmentObject var authVM: AuthenticationViewModel
     
     var body: some View {
         VStack {
             VStack(spacing: 20) {
-                if userImage == nil {
+                if viewModel.userImage == nil {
                     Button {
-                        imagePickerPresented = true
+                        viewModel.imagePickerPresented = true
                     } label: {
                         Image(systemName: "plus.circle")
                             .resizable()
@@ -32,10 +26,10 @@ struct SignUpView: View {
                             .foregroundColor(.white)
                             .padding(.top, 40)
                     }
-                    .sheet(isPresented: $imagePickerPresented, onDismiss: loadImage) {
-                        ImagePicker(image: $selectedImage)
+                    .sheet(isPresented: $viewModel.imagePickerPresented, onDismiss: loadImage) {
+                        ImagePicker(image: $viewModel.selectedImage)
                     }
-                } else if let image = userImage {
+                } else if let image = viewModel.userImage {
                     image
                         .resizable()
                         .scaledToFill()
@@ -44,19 +38,26 @@ struct SignUpView: View {
                         .padding(.top, 40)
                 }
             
-                CustomTextField(text: $email, placeholder: "Email", imageName: "envelope")
+                CustomTextField(text: $viewModel.email, placeholder: "Email", imageName: "envelope")
+                    .autocapitalization(.none)
                 
-                CustomTextField(text: $firstName, placeholder: "First Name", imageName: "person")
+                CustomTextField(text: $viewModel.userName, placeholder: "User Name", imageName: "person")
+                    .autocapitalization(.none)
                 
-                CustomTextField(text: $email, placeholder: "Second Name", imageName: "person")
+                CustomTextField(text: $viewModel.fullName, placeholder: "Full Name", imageName: "person")
     
-                CustomTextField(text: $password, placeholder: "Password", imageName: "lock", isSecured: true)
+                CustomTextField(text: $viewModel.password, placeholder: "Password", imageName: "lock", isSecured: true)
                 
                 HStack {
                     Spacer()
                     
                     Button {
-                        authVM.signUp()
+                        signUp(
+                            viewModel.email,
+                            viewModel.password,
+                            viewModel.userName,
+                            viewModel.fullName
+                        )
                     } label: {
                         Text("Sign Up")
                             .font(.headline)
@@ -68,6 +69,47 @@ struct SignUpView: View {
                 .frame(height: 50)
                 .background(Color.purple)
                 .clipShape(Capsule())
+                
+                Group {
+                    if viewModel.isLoading && viewModel.errorMessage.isEmpty {
+                        ProgressView()
+                            .tint(.blue)
+                            .controlSize(.large)
+                    }
+                    
+                    if !viewModel.errorMessage.isEmpty && !viewModel.isLoading {
+                        Text(viewModel.errorMessage)
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.red)
+                    }
+                }
+                .padding(.top, 48)
+            }
+        }
+    }
+    
+    func signUp(_ email: String, _ password: String, _ userName: String, _ fullName: String) {
+        authVM.signUp(email, password, userName, fullName) { signUpState in
+            switch signUpState {
+            case .loading:
+                viewModel.resetErrorMessage()
+                viewModel.toggleLoading()
+            case .success:
+                print("success")
+            case .error(let signUpError):
+                viewModel.toggleLoading()
+                switch signUpError {
+                case .invalidEmail:
+                    viewModel.setErrorMessage(to: "The email address is malformed.")
+                case .emailAlreadyInUse:
+                    viewModel.setErrorMessage(to: "The email used to attempt sign up already exists.")
+                case .weakPassword:
+                    viewModel.setErrorMessage(to: "This password is considered too weak.")
+                default:
+                    viewModel.setErrorMessage(to: "Unhandled error: \(signUpError.rawValue)")
+                }
             }
         }
     }
@@ -75,9 +117,9 @@ struct SignUpView: View {
 
 extension SignUpView {
     func loadImage() {
-        guard let selectedImage = selectedImage else { return }
+        guard let selectedImage = viewModel.selectedImage else { return }
         
-        userImage = Image(uiImage: selectedImage)
+        viewModel.userImage = Image(uiImage: selectedImage)
     }
 }
 

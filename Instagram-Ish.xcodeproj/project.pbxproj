@@ -44,6 +44,9 @@
 		1B95108E2A69A9A3001D99E7 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1B95108D2A69A9A3001D99E7 /* FirebaseFirestoreSwift */; };
 		1B9510902A69A9A3001D99E7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1B95108F2A69A9A3001D99E7 /* FirebaseStorage */; };
 		1B9510922A69D020001D99E7 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9510912A69D020001D99E7 /* AuthenticationViewModel.swift */; };
+		1B9510942A69DA6D001D99E7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9510932A69DA6D001D99E7 /* User.swift */; };
+		1B9510982A69DBD9001D99E7 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9510972A69DBD9001D99E7 /* LandingViewModel.swift */; };
+		1B95109A2A69DC65001D99E7 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9510992A69DC65001D99E7 /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +101,9 @@
 		1B9510802A699986001D99E7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		1B9510822A69A8F5001D99E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B9510912A69D020001D99E7 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		1B9510932A69DA6D001D99E7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1B9510972A69DBD9001D99E7 /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
+		1B9510992A69DC65001D99E7 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +228,7 @@
 		1B4187302A66283200B22DD9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1B9510932A69DA6D001D99E7 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -344,6 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				1B9510912A69D020001D99E7 /* AuthenticationViewModel.swift */,
+				1B9510972A69DBD9001D99E7 /* LandingViewModel.swift */,
+				1B9510992A69DC65001D99E7 /* SignUpViewModel.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -497,6 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B9510942A69DA6D001D99E7 /* User.swift in Sources */,
 				1B4187492A662A0C00B22DD9 /* SearchView.swift in Sources */,
 				1B95107F2A69912D001D99E7 /* LandingView.swift in Sources */,
 				1B4187472A6629F000B22DD9 /* FeedView.swift in Sources */,
@@ -504,6 +514,7 @@
 				1B19FBF32A68B82D002D521E /* SignUpView.swift in Sources */,
 				1B4187632A6750C000B22DD9 /* ProfileActionButton.swift in Sources */,
 				1B4187052A6627BF00B22DD9 /* Instagram_IshApp.swift in Sources */,
+				1B95109A2A69DC65001D99E7 /* SignUpViewModel.swift in Sources */,
 				1B41873F2A66290800B22DD9 /* ContentView.swift in Sources */,
 				1B19FBF52A68B83B002D521E /* ResetPasswordView.swift in Sources */,
 				1B4187452A6629B900B22DD9 /* MainTabView.swift in Sources */,
@@ -512,6 +523,7 @@
 				1B41874F2A662A5400B22DD9 /* UploadPostView.swift in Sources */,
 				1B41875F2A674A7C00B22DD9 /* ProfileHeaderView.swift in Sources */,
 				1B19FBF12A68B824002D521E /* SignInView.swift in Sources */,
+				1B9510982A69DBD9001D99E7 /* LandingViewModel.swift in Sources */,
 				1B41874D2A662A4900B22DD9 /* ProfileView.swift in Sources */,
 				1B4187612A674F6100B22DD9 /* UserStatView.swift in Sources */,
 				1B4187572A673B9C00B22DD9 /* UserCell.swift in Sources */,
