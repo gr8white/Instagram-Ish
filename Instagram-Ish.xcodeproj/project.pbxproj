@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B19FBF12A68B824002D521E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B19FBF02A68B824002D521E /* SignInView.swift */; };
+		1B19FBF32A68B82D002D521E /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B19FBF22A68B82D002D521E /* SignUpView.swift */; };
+		1B19FBF52A68B83B002D521E /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B19FBF42A68B83B002D521E /* ResetPasswordView.swift */; };
 		1B4187052A6627BF00B22DD9 /* Instagram_IshApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187042A6627BF00B22DD9 /* Instagram_IshApp.swift */; };
 		1B4187092A6627C000B22DD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B4187082A6627C000B22DD9 /* Assets.xcassets */; };
 		1B41870C2A6627C000B22DD9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B41870B2A6627C000B22DD9 /* Preview Assets.xcassets */; };
@@ -31,6 +34,8 @@
 		1B4187612A674F6100B22DD9 /* UserStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187602A674F6100B22DD9 /* UserStatView.swift */; };
 		1B4187632A6750C000B22DD9 /* ProfileActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187622A6750C000B22DD9 /* ProfileActionButton.swift */; };
 		1B4187652A68A7FC00B22DD9 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187642A68A7FC00B22DD9 /* ImagePicker.swift */; };
+		1B95107F2A69912D001D99E7 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B95107E2A69912D001D99E7 /* LandingView.swift */; };
+		1B9510812A699986001D99E7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9510802A699986001D99E7 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B19FBF02A68B824002D521E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		1B19FBF22A68B82D002D521E /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		1B19FBF42A68B83B002D521E /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		1B4187012A6627BF00B22DD9 /* Instagram-Ish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Instagram-Ish.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B4187042A6627BF00B22DD9 /* Instagram_IshApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instagram_IshApp.swift; sourceTree = "<group>"; };
 		1B4187082A6627C000B22DD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,6 +86,8 @@
 		1B4187602A674F6100B22DD9 /* UserStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatView.swift; sourceTree = "<group>"; };
 		1B4187622A6750C000B22DD9 /* ProfileActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButton.swift; sourceTree = "<group>"; };
 		1B4187642A68A7FC00B22DD9 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		1B95107E2A69912D001D99E7 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		1B9510802A699986001D99E7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +290,10 @@
 		1B41873C2A6628E500B22DD9 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				1B19FBF02A68B824002D521E /* SignInView.swift */,
+				1B19FBF22A68B82D002D521E /* SignUpView.swift */,
+				1B19FBF42A68B83B002D521E /* ResetPasswordView.swift */,
+				1B95107E2A69912D001D99E7 /* LandingView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -290,6 +304,7 @@
 				1B4187542A6739DC00B22DD9 /* PostGridView.swift */,
 				1B4187562A673B9C00B22DD9 /* UserCell.swift */,
 				1B4187582A673BA800B22DD9 /* UserListView.swift */,
+				1B9510802A699986001D99E7 /* CustomTextField.swift */,
 			);
 			path = SharedItems;
 			sourceTree = "<group>";
@@ -453,21 +468,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B4187492A662A0C00B22DD9 /* SearchView.swift in Sources */,
+				1B95107F2A69912D001D99E7 /* LandingView.swift in Sources */,
 				1B4187472A6629F000B22DD9 /* FeedView.swift in Sources */,
 				1B4187552A6739DC00B22DD9 /* PostGridView.swift in Sources */,
+				1B19FBF32A68B82D002D521E /* SignUpView.swift in Sources */,
 				1B4187632A6750C000B22DD9 /* ProfileActionButton.swift in Sources */,
 				1B4187052A6627BF00B22DD9 /* Instagram_IshApp.swift in Sources */,
 				1B41873F2A66290800B22DD9 /* ContentView.swift in Sources */,
+				1B19FBF52A68B83B002D521E /* ResetPasswordView.swift in Sources */,
 				1B4187452A6629B900B22DD9 /* MainTabView.swift in Sources */,
 				1B4187652A68A7FC00B22DD9 /* ImagePicker.swift in Sources */,
 				1B41874F2A662A5400B22DD9 /* UploadPostView.swift in Sources */,
 				1B41875F2A674A7C00B22DD9 /* ProfileHeaderView.swift in Sources */,
+				1B19FBF12A68B824002D521E /* SignInView.swift in Sources */,
 				1B41874D2A662A4900B22DD9 /* ProfileView.swift in Sources */,
 				1B4187612A674F6100B22DD9 /* UserStatView.swift in Sources */,
 				1B4187572A673B9C00B22DD9 /* UserCell.swift in Sources */,
 				1B4187532A67378D00B22DD9 /* SearchBar.swift in Sources */,
 				1B41874B2A662A4000B22DD9 /* NotificationsView.swift in Sources */,
 				1B4187512A662E4400B22DD9 /* FeedCell.swift in Sources */,
+				1B9510812A699986001D99E7 /* CustomTextField.swift in Sources */,
 				1B4187592A673BA800B22DD9 /* UserListView.swift in Sources */,
 				1B41875D2A67459300B22DD9 /* NotificationCell.swift in Sources */,
 				1B41875B2A6741CB00B22DD9 /* Extensions.swift in Sources */,
