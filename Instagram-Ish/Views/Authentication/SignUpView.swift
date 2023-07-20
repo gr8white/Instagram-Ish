@@ -1,5 +1,5 @@
 //
-//  RegistrationView.swift
+//  SignUpView.swift
 //  Instagram-Ish
 //
 //  Created by Cool-Ish on 7/19/23.
@@ -13,7 +13,7 @@ struct SignUpView: View {
     }
 }
 
-struct RegistrationView_Previews: PreviewProvider {
+struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
         SignUpView()
     }

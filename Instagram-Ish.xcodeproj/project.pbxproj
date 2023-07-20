@@ -35,6 +35,7 @@
 		1B4187632A6750C000B22DD9 /* ProfileActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187622A6750C000B22DD9 /* ProfileActionButton.swift */; };
 		1B4187652A68A7FC00B22DD9 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4187642A68A7FC00B22DD9 /* ImagePicker.swift */; };
 		1B95107F2A69912D001D99E7 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B95107E2A69912D001D99E7 /* LandingView.swift */; };
+		1B9510812A699986001D99E7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9510802A699986001D99E7 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		1B4187622A6750C000B22DD9 /* ProfileActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButton.swift; sourceTree = "<group>"; };
 		1B4187642A68A7FC00B22DD9 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1B95107E2A69912D001D99E7 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		1B9510802A699986001D99E7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,7 @@
 				1B4187542A6739DC00B22DD9 /* PostGridView.swift */,
 				1B4187562A673B9C00B22DD9 /* UserCell.swift */,
 				1B4187582A673BA800B22DD9 /* UserListView.swift */,
+				1B9510802A699986001D99E7 /* CustomTextField.swift */,
 			);
 			path = SharedItems;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				1B4187532A67378D00B22DD9 /* SearchBar.swift in Sources */,
 				1B41874B2A662A4000B22DD9 /* NotificationsView.swift in Sources */,
 				1B4187512A662E4400B22DD9 /* FeedCell.swift in Sources */,
+				1B9510812A699986001D99E7 /* CustomTextField.swift in Sources */,
 				1B4187592A673BA800B22DD9 /* UserListView.swift in Sources */,
 				1B41875D2A67459300B22DD9 /* NotificationCell.swift in Sources */,
 				1B41875B2A6741CB00B22DD9 /* Extensions.swift in Sources */,

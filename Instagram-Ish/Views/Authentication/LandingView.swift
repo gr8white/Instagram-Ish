@@ -15,14 +15,6 @@ struct LandingView: View {
             LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             VStack {
-                Image("instagram_logo")
-                    .resizable()
-                    .renderingMode(.template)
-                    .scaledToFit()
-                    .frame(width: 220, height: 70)
-                    .foregroundColor(.white)
-                    .padding(.top, 72)
-                
                 if showSignIn {
                     SignInView()
                 } else {
@@ -44,6 +36,7 @@ struct LandingView: View {
                     .foregroundColor(.white)
                 }
             }
+            .padding([.horizontal, .bottom], 32)
         }
     }
 }
