@@ -10,6 +10,8 @@ import SwiftUI
 struct SignInView: View {
     @State private var email: String = ""
     @State private var password: String = ""
+    @EnvironmentObject var authVM: AuthenticationViewModel
+    
     var body: some View {
         VStack {
             Image("instagram_logo")
@@ -41,7 +43,7 @@ struct SignInView: View {
                     Spacer()
                     
                     Button {
-                        
+                        authVM.signIn()
                     } label: {
                         Text("Sign In")
                             .font(.headline)

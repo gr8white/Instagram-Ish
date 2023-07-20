@@ -15,6 +15,7 @@ struct SignUpView: View {
     @State private var imagePickerPresented: Bool = false
     @State private var selectedImage: UIImage?
     @State private var userImage: Image?
+    @EnvironmentObject var authVM: AuthenticationViewModel
     
     var body: some View {
         VStack {
@@ -55,7 +56,7 @@ struct SignUpView: View {
                     Spacer()
                     
                     Button {
-                        
+                        authVM.signUp()
                     } label: {
                         Text("Sign Up")
                             .font(.headline)

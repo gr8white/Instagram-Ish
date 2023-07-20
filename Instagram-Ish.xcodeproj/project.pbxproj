@@ -43,6 +43,7 @@
 		1B95108C2A69A9A3001D99E7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1B95108B2A69A9A3001D99E7 /* FirebaseFirestore */; };
 		1B95108E2A69A9A3001D99E7 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1B95108D2A69A9A3001D99E7 /* FirebaseFirestoreSwift */; };
 		1B9510902A69A9A3001D99E7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1B95108F2A69A9A3001D99E7 /* FirebaseStorage */; };
+		1B9510922A69D020001D99E7 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9510912A69D020001D99E7 /* AuthenticationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		1B95107E2A69912D001D99E7 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		1B9510802A699986001D99E7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		1B9510822A69A8F5001D99E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1B9510912A69D020001D99E7 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +343,7 @@
 		1B4187422A66292900B22DD9 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				1B9510912A69D020001D99E7 /* AuthenticationViewModel.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				1B19FBF52A68B83B002D521E /* ResetPasswordView.swift in Sources */,
 				1B4187452A6629B900B22DD9 /* MainTabView.swift in Sources */,
 				1B4187652A68A7FC00B22DD9 /* ImagePicker.swift in Sources */,
+				1B9510922A69D020001D99E7 /* AuthenticationViewModel.swift in Sources */,
 				1B41874F2A662A5400B22DD9 /* UploadPostView.swift in Sources */,
 				1B41875F2A674A7C00B22DD9 /* ProfileHeaderView.swift in Sources */,
 				1B19FBF12A68B824002D521E /* SignInView.swift in Sources */,
