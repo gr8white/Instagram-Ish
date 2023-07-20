@@ -47,6 +47,7 @@
 		1B9510942A69DA6D001D99E7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9510932A69DA6D001D99E7 /* User.swift */; };
 		1B9510982A69DBD9001D99E7 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9510972A69DBD9001D99E7 /* LandingViewModel.swift */; };
 		1B95109A2A69DC65001D99E7 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9510992A69DC65001D99E7 /* SignUpViewModel.swift */; };
+		1B95109C2A69E97C001D99E7 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B95109B2A69E97C001D99E7 /* ImageUploader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		1B9510932A69DA6D001D99E7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1B9510972A69DBD9001D99E7 /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
 		1B9510992A69DC65001D99E7 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		1B95109B2A69E97C001D99E7 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 		1B4187322A66284500B22DD9 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				1B95109B2A69E97C001D99E7 /* ImageUploader.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				1B4187592A673BA800B22DD9 /* UserListView.swift in Sources */,
 				1B41875D2A67459300B22DD9 /* NotificationCell.swift in Sources */,
 				1B41875B2A6741CB00B22DD9 /* Extensions.swift in Sources */,
+				1B95109C2A69E97C001D99E7 /* ImageUploader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

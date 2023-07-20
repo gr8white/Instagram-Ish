@@ -56,7 +56,8 @@ struct SignUpView: View {
                             viewModel.email,
                             viewModel.password,
                             viewModel.userName,
-                            viewModel.fullName
+                            viewModel.fullName,
+                            viewModel.selectedImage
                         )
                     } label: {
                         Text("Sign Up")
@@ -90,8 +91,8 @@ struct SignUpView: View {
         }
     }
     
-    func signUp(_ email: String, _ password: String, _ userName: String, _ fullName: String) {
-        authVM.signUp(email, password, userName, fullName) { signUpState in
+    func signUp(_ email: String, _ password: String, _ userName: String, _ fullName: String, _ profileImage: UIImage?) {
+        authVM.signUp(email, password, userName, fullName, profileImage) { signUpState in
             switch signUpState {
             case .loading:
                 viewModel.resetErrorMessage()

@@ -31,31 +31,38 @@ class AuthenticationViewModel: ObservableObject {
     
     func signIn() { }
     
-    func signUp(_ email: String, _ password: String, _ userName: String, _ fullName: String, completion: @escaping (AuthRequestState) -> Void) {
+    func signUp(_ email: String, _ password: String, _ userName: String, _ fullName: String, _ image: UIImage?, completion: @escaping (AuthRequestState) -> Void) {
         completion(.loading)
         
-        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
-            guard let strongSelf = self else { return }
-            
-            if let error = error as? NSError, let authError = AuthErrorCode.Code(rawValue: error.code) {
-                completion(.error(authError))
-            }
-            
-            if let authResult = authResult {
-                Task {
-                    try await Task.sleep(for:.seconds(1))
-                    
-                    DispatchQueue.main.async {
-                        strongSelf.userSession = authResult.user
+        guard let image = image else {
+            completion(.error(.internalError))
+            return
+        }
+        
+        ImageUploader.uploadImage(image: image) { imageURL in
+            Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+                guard let strongSelf = self else { return }
+                
+                if let error = error as? NSError, let authError = AuthErrorCode.Code(rawValue: error.code) {
+                    completion(.error(authError))
+                }
+                
+                if let authResult = authResult {
+                    Task {
+                        try await Task.sleep(for:.seconds(1))
+                        
+                        let user = User(id: authResult.user.uid, email: email, userName: userName, fullName: fullName, profileImageURL: imageURL)
+                        
+                        let encodedUser = try Firestore.Encoder().encode(user)
+                        
+                        try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+                        
+                        DispatchQueue.main.async {
+                            strongSelf.userSession = authResult.user
+                        }
+                        
+                        await strongSelf.fetchUser()
                     }
-                    
-                    let user = User(id: authResult.user.uid, email: email, fullName: fullName)
-                    
-                    let encodedUser = try Firestore.Encoder().encode(user)
-                    
-                    try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
-                    
-                    await strongSelf.fetchUser()
                 }
             }
         }
