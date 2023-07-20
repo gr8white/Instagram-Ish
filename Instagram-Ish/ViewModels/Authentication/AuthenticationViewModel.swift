@@ -9,6 +9,12 @@ import Foundation
 import Firebase
 
 class AuthenticationViewModel: ObservableObject {
+    @Published var userSession: FirebaseAuth.User?
+    
+    init() {
+        self.userSession = Auth.auth().currentUser
+    }
+    
     func signIn() { }
     
     func signUp() { }

@@ -13,9 +13,10 @@ struct Instagram_IshApp: App {
     init() {
         FirebaseApp.configure()
     }
+    
     var body: some Scene {
         WindowGroup {
-            LandingView()
+            ContentView()
                 .environmentObject(AuthenticationViewModel())
         }
     }
