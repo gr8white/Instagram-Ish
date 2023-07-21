@@ -24,6 +24,8 @@ struct User: Identifiable, Codable {
         
         return ""
     }
+    
+    var isCurrentUser: Bool { AuthenticationViewModel.shared.userSession?.uid == id }
 }
 
 extension User {
