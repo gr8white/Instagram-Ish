@@ -17,7 +17,7 @@ struct UserListView: View {
                     NavigationLink {
                         ProfileView()
                     } label: {
-                        UserCell(userName: user.userName, fullName: user.fullName)
+                        UserCell(user: user)
                     }
                 }
             }
