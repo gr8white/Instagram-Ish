@@ -50,6 +50,7 @@
 		1B95109C2A69E97C001D99E7 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B95109B2A69E97C001D99E7 /* ImageUploader.swift */; };
 		1B95109E2A6B1497001D99E7 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B95109D2A6B1497001D99E7 /* SignInViewModel.swift */; };
 		1B9510A02A6B1D42001D99E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B95109F2A6B1D42001D99E7 /* Constants.swift */; };
+		1B9ED6AB2A6B284600C1D32A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9ED6AA2A6B284600C1D32A /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		1B95109B2A69E97C001D99E7 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		1B95109D2A6B1497001D99E7 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		1B95109F2A6B1D42001D99E7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1B9ED6AA2A6B284600C1D32A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 				1B4187422A66292900B22DD9 /* Authentication */,
 				1B4187412A66292200B22DD9 /* Notifications */,
 				1B4187402A66291E00B22DD9 /* Feed */,
+				1B9ED6AA2A6B284600C1D32A /* SearchViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				1B95109E2A6B1497001D99E7 /* SignInViewModel.swift in Sources */,
 				1B41874F2A662A5400B22DD9 /* UploadPostView.swift in Sources */,
 				1B41875F2A674A7C00B22DD9 /* ProfileHeaderView.swift in Sources */,
+				1B9ED6AB2A6B284600C1D32A /* SearchViewModel.swift in Sources */,
 				1B19FBF12A68B824002D521E /* SignInView.swift in Sources */,
 				1B9510982A69DBD9001D99E7 /* LandingViewModel.swift in Sources */,
 				1B41874D2A662A4900B22DD9 /* ProfileView.swift in Sources */,

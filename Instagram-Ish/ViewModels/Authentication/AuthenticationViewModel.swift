@@ -79,7 +79,7 @@ class AuthenticationViewModel: ObservableObject {
                         
                         let encodedUser = try Firestore.Encoder().encode(user)
                         
-                        try await FIRESTORE_USERS.document(user.id).setData(encodedUser)
+                        try await FIRESTORE_USERS.document(authResult.user.uid).setData(encodedUser)
                         
                         DispatchQueue.main.async {
                             strongSelf.userSession = authResult.user

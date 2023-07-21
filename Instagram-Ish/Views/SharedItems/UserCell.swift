@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct UserCell: View {
+    var userName: String
+    var fullName: String
+    
     var body: some View {
         HStack {
             Image("batman")
@@ -17,10 +20,10 @@ struct UserCell: View {
                 .clipShape(Circle())
             
             VStack(alignment: .leading) {
-                Text("batman")
+                Text(userName)
                     .font(.system(size: 14, weight: .semibold))
                 
-                Text("Bruce Wayne")
+                Text(fullName)
                     .font(.system(size: 14))
             }
             
@@ -31,7 +34,7 @@ struct UserCell: View {
 
 struct UserCell_Previews: PreviewProvider {
     static var previews: some View {
-        UserCell()
+        UserCell(userName: "batman", fullName: "Bruce Wayne")
             .previewLayout(.sizeThatFits)
             .padding()
     }
