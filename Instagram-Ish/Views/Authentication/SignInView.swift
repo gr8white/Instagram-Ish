@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct SignInView: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @ObservedObject var viewModel = SignInViewModel()
     @EnvironmentObject var authVM: AuthenticationViewModel
     
     var body: some View {
@@ -23,9 +22,10 @@ struct SignInView: View {
                 .padding(.top, 80)
             
             VStack(spacing: 20) {
-                CustomTextField(text: $email, placeholder: "Email", imageName: "envelope")
+                CustomTextField(text: $viewModel.email, placeholder: "Email", imageName: "envelope")
+                    .textInputAutocapitalization(.never)
     
-                CustomTextField(text: $password, placeholder: "Password", imageName: "lock", isSecured: true)
+                CustomTextField(text: $viewModel.password, placeholder: "Password", imageName: "lock", isSecured: true)
                 
                 HStack {
                     Spacer()
@@ -43,7 +43,7 @@ struct SignInView: View {
                     Spacer()
                     
                     Button {
-                        authVM.signIn()
+                        signIn(email: viewModel.email, password: viewModel.password)
                     } label: {
                         Text("Sign In")
                             .font(.headline)
@@ -55,6 +55,52 @@ struct SignInView: View {
                 .frame(height: 50)
                 .background(Color.purple)
                 .clipShape(Capsule())
+                
+                Group {
+                    if viewModel.isLoading && viewModel.errorMessage.isEmpty {
+                        ProgressView()
+                            .tint(.white)
+                            .controlSize(.large)
+                    }
+                    
+                    if !viewModel.errorMessage.isEmpty && !viewModel.isLoading {
+                        Text(viewModel.errorMessage)
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                            .padding()
+                            .background(Color.init(white: 1, opacity: 0.15))
+                            .cornerRadius(10)
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding(.top, 48)
+            }
+        }
+    }
+    
+    func signIn(email: String, password: String) {
+        authVM.signIn(email: email, password: password) { signInState in
+            switch signInState {
+            case .loading:
+                viewModel.resetErrorMessage()
+                viewModel.toggleLoading()
+            case .success:
+                print("success")
+            case .error(let signInError):
+                viewModel.toggleLoading()
+                switch signInError {
+                case .wrongPassword:
+                    viewModel.setErrorMessage(to: "The user attempted sign in with an incorrect password.")
+                case .invalidEmail:
+                    viewModel.setErrorMessage(to: "The email address is malformed.")
+                case .userDisabled:
+                    viewModel.setErrorMessage(to: "The user's account is disabled.")
+                case .userNotFound:
+                    viewModel.setErrorMessage(to: "The user account was not found.\nThis could happen if the user account has been deleted.")
+                default:
+                    viewModel.setErrorMessage(to: "Unhandled error: \(signInError.rawValue)")
+                }
             }
         }
     }
@@ -62,6 +108,11 @@ struct SignInView: View {
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        SignInView()
+        VStack {
+            Spacer()
+            SignInView()
+            Spacer()
+        }
+        .background(Gradient(colors: [.purple, .blue]))
     }
 }

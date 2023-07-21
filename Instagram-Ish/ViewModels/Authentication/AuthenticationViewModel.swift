@@ -29,7 +29,31 @@ class AuthenticationViewModel: ObservableObject {
         }
     }
     
-    func signIn() { }
+    func signIn(email: String, password: String, completion: @escaping (AuthRequestState) -> Void) {
+        completion(.loading)
+        
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let strongSelf = self else { return }
+            
+            if let error = error as? NSError, let authError = AuthErrorCode.Code(rawValue: error.code) {
+                completion(.error(authError))
+            }
+            
+            if let authResult = authResult {
+                Task {
+                    try await Task.sleep(for:.seconds(1))
+                    
+                    await strongSelf.fetchUser()
+                    
+                    DispatchQueue.main.async {
+                        strongSelf.userSession = authResult.user
+                        
+                        completion(.success)
+                    }
+                }
+            }
+        }
+    }
     
     func signUp(_ email: String, _ password: String, _ userName: String, _ fullName: String, _ image: UIImage?, completion: @escaping (AuthRequestState) -> Void) {
         completion(.loading)

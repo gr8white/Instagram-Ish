@@ -39,10 +39,10 @@ struct SignUpView: View {
                 }
             
                 CustomTextField(text: $viewModel.email, placeholder: "Email", imageName: "envelope")
-                    .autocapitalization(.none)
+                    .textInputAutocapitalization(.never)
                 
                 CustomTextField(text: $viewModel.userName, placeholder: "User Name", imageName: "person")
-                    .autocapitalization(.none)
+                    .textInputAutocapitalization(.never)
                 
                 CustomTextField(text: $viewModel.fullName, placeholder: "Full Name", imageName: "person")
     
@@ -74,7 +74,7 @@ struct SignUpView: View {
                 Group {
                     if viewModel.isLoading && viewModel.errorMessage.isEmpty {
                         ProgressView()
-                            .tint(.blue)
+                            .tint(.white)
                             .controlSize(.large)
                     }
                     
