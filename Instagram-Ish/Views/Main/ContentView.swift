@@ -13,7 +13,9 @@ struct ContentView: View {
     var body: some View {
         Group {
             if authVM.userSession != nil {
-                MainTabView()
+                if let user = authVM.currentUser {
+                    MainTabView(user: user)
+                }
             } else {
                 LandingView()
             }

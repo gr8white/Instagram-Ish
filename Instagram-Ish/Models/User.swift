@@ -6,11 +6,10 @@
 //
 
 import Foundation
-
-import Foundation
+import FirebaseFirestoreSwift
 
 struct User: Identifiable, Codable {
-    let id: String
+    @DocumentID var id: String?
     let email: String
     let userName: String
     let fullName: String
@@ -25,6 +24,8 @@ struct User: Identifiable, Codable {
         
         return ""
     }
+    
+    var isCurrentUser: Bool { AuthenticationViewModel.shared.userSession?.uid == id }
 }
 
 extension User {

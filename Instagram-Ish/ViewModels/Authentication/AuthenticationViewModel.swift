@@ -22,7 +22,7 @@ class AuthenticationViewModel: ObservableObject {
     static let shared = AuthenticationViewModel()
     
     init() {
-        self.userSession = Auth.auth().currentUser
+        self.userSession = FIREBASE_AUTH.currentUser
         
         Task {
             await fetchUser()
@@ -32,7 +32,7 @@ class AuthenticationViewModel: ObservableObject {
     func signIn(email: String, password: String, completion: @escaping (AuthRequestState) -> Void) {
         completion(.loading)
         
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+        FIREBASE_AUTH.signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let strongSelf = self else { return }
             
             if let error = error as? NSError, let authError = AuthErrorCode.Code(rawValue: error.code) {
@@ -64,7 +64,7 @@ class AuthenticationViewModel: ObservableObject {
         }
         
         ImageUploader.uploadImage(image: image) { imageURL in
-            Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+            FIREBASE_AUTH.createUser(withEmail: email, password: password) { [weak self] authResult, error in
                 guard let strongSelf = self else { return }
                 
                 if let error = error as? NSError, let authError = AuthErrorCode.Code(rawValue: error.code) {
@@ -79,7 +79,7 @@ class AuthenticationViewModel: ObservableObject {
                         
                         let encodedUser = try Firestore.Encoder().encode(user)
                         
-                        try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+                        try await FIRESTORE_USERS.document(authResult.user.uid).setData(encodedUser)
                         
                         DispatchQueue.main.async {
                             strongSelf.userSession = authResult.user
@@ -94,7 +94,7 @@ class AuthenticationViewModel: ObservableObject {
     
     func signOut(completion: @escaping (AuthRequestState) -> Void) {
         do {
-            try Auth.auth().signOut()
+            try FIREBASE_AUTH.signOut()
             self.userSession = nil
             self.currentUser = nil
         } catch {
@@ -103,8 +103,9 @@ class AuthenticationViewModel: ObservableObject {
     }
     
     func fetchUser() async {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return }
+        guard
+            let uid = FIREBASE_AUTH.currentUser?.uid,
+            let snapshot = try? await FIRESTORE_USERS.document(uid).getDocument() else { return }
         
         DispatchQueue.main.async {
             self.currentUser = try? snapshot.data(as: User.self)

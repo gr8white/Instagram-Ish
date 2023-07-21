@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainTabView: View {
+    let user: User
+    
     var body: some View {
         NavigationStack {
             TabView {
@@ -31,7 +33,7 @@ struct MainTabView: View {
                         Image(systemName: "heart")
                     }
                 
-                ProfileView()
+                ProfileView(user: user)
                     .tabItem {
                         Image(systemName: "person")
                     }
@@ -51,6 +53,7 @@ struct MainTabView: View {
         } label: {
             Text("Sign Out")
                 .foregroundColor(.black)
+                .font(.system(size: 16, weight: .semibold))
         }
 
     }
@@ -58,6 +61,6 @@ struct MainTabView: View {
 
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView()
+        MainTabView(user: .UserExample)
     }
 }
