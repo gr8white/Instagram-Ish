@@ -51,6 +51,7 @@ struct MainTabView: View {
         } label: {
             Text("Sign Out")
                 .foregroundColor(.black)
+                .font(.system(size: 16, weight: .semibold))
         }
 
     }
