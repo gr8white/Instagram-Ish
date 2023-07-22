@@ -40,7 +40,7 @@ struct MainTabView: View {
             }
             .navigationTitle("Home")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading: logOutButton)
+            .navigationBarItems(trailing: logOutButton)
             .accentColor(.black)
         }
     }
