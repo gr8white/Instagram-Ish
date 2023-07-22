@@ -8,7 +8,7 @@
 import Foundation
 
 class ProfileViewModel: ObservableObject {
-    let user: User
+    @Published var user: User
     
     init(user: User) {
         self.user = user
@@ -19,6 +19,7 @@ class ProfileViewModel: ObservableObject {
         
         UserService.follow(uid: uid) { _ in
             print("successfully followed \(self.user.userName)")
+            self.user.isFollowed = true
         }
     }
     
