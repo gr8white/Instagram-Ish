@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var authVM: AuthenticationViewModel
+    @State var selectedTabIndex: Int = 0
     
     var body: some View {
         Group {
             if authVM.userSession != nil {
                 if let user = authVM.currentUser {
-                    MainTabView(user: user)
+                    MainTabView(user: user, selectedIndex: $selectedTabIndex)
                 }
             } else {
                 LandingView()

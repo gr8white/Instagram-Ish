@@ -63,7 +63,7 @@ class AuthenticationViewModel: ObservableObject {
             return
         }
         
-        ImageUploader.uploadImage(image: image) { imageURL in
+        ImageUploader.uploadImage(image: image, type: .profileImage) { imageURL in
             FIREBASE_AUTH.createUser(withEmail: email, password: password) { [weak self] authResult, error in
                 guard let strongSelf = self else { return }
                 
