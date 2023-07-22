@@ -8,8 +8,10 @@
 import Foundation
 import Firebase
 
+typealias FirestoreErrorCompletion = (Error?) -> Void
+
 struct UserService {
-    static func follow(uid: String, completion: @escaping (Error?) -> Void) {
+    static func follow(uid: String, completion: @escaping FirestoreErrorCompletion) {
         guard let currentUid = AuthenticationViewModel.shared.userSession?.uid else { return }
         
         FIRESTORE_FOLLOWING.document(currentUid).collection("user-following").document(uid).setData([:]) { _ in
@@ -17,7 +19,7 @@ struct UserService {
         }
     }
     
-    static func unFollow(uid: String, completion: @escaping (Error?) -> Void) {
+    static func unFollow(uid: String, completion: @escaping FirestoreErrorCompletion) {
         guard let currentUid = AuthenticationViewModel.shared.userSession?.uid else { return }
         
         FIRESTORE_FOLLOWING.document(currentUid).collection("user-following")

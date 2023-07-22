@@ -6,21 +6,34 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseStorage
 
-struct ImageUploader {
-    static func uploadImage(image: UIImage, completion: @escaping(String) -> Void) {
-        guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
+enum ImageUploadType{
+    case profileImage
+    case postImage
+    
+    var filePath: StorageReference {
         let fileName = NSUUID().uuidString
-        let ref = Storage.storage().reference(withPath: "/profile_images/\(fileName)")
+        
+        switch self {
+        case .profileImage:
+            return STORAGE.reference(withPath: "/profile_images/\(fileName)")
+        case .postImage:
+            return STORAGE.reference(withPath: "/post_images/\(fileName)")
+        }
+    }
+}
+
+struct ImageUploader {
+    static func uploadImage(image: UIImage, type: ImageUploadType, completion: @escaping(String) -> Void) {
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
+        
+        let ref = type.filePath
         
         ref.putData(imageData) { _, error in
             if let error = error {
                 print("DEBUG: Failed to upload image - \(error.localizedDescription)")
             }
-            
-            print("successfully uploaded image")
             
             ref.downloadURL { url, _ in
                 guard let imageURL = url?.absoluteString else { return }
