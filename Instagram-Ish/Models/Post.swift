@@ -7,8 +7,10 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestoreSwift
 
-struct Post: Encodable {
+struct Post: Identifiable, Codable {
+    @DocumentID var id: String?
     var caption: String
     var timeStamp: Timestamp
     var likes: Int
@@ -16,4 +18,8 @@ struct Post: Encodable {
     var ownerUid: String
     var ownerProfileImageURL: String
     var ownerUserName: String
+}
+
+extension Post {
+    static var PostExample = Post(caption: "", timeStamp: Timestamp(date: Date()), likes: 6, imageURL: "", ownerUid: "", ownerProfileImageURL: "", ownerUserName: "")
 }

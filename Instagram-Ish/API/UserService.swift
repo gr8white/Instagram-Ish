@@ -38,4 +38,14 @@ struct UserService {
                 completion(isFollowed)
             }
     }
+    
+    static func fetchAllFollowing(completion: @escaping ([String]) -> Void) {
+        guard let currentUid = AuthenticationViewModel.shared.userSession?.uid else { return }
+        
+        FIRESTORE_FOLLOWING.document(currentUid).collection("user-following").getDocuments { snapshot, _ in
+            guard let followedIDs = snapshot?.documents else { return }
+            
+            completion(followedIDs.compactMap({ $0.documentID }))
+        }
+    }
 }
