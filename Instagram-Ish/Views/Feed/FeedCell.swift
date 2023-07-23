@@ -6,24 +6,27 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct FeedCell: View {
+    var post: Post
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image("batman")
+                KFImage(URL(string: post.ownerProfileImageURL))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 36, height: 36)
                     .clipped()
                     .cornerRadius(18)
                 
-                Text("batman")
+                Text(post.ownerUserName)
                     .font(.system(size: 14, weight: .semibold))
             }
             .padding([.bottom, .leading], 8)
             
-            Image("batman")
+            KFImage(URL(string: post.imageURL))
                 .resizable()
                 .scaledToFill()
                 .frame(maxHeight: 340)
@@ -65,10 +68,10 @@ struct FeedCell: View {
                 .foregroundColor(.black)
                 .padding(.vertical, 4)
                 
-                Text("3 likes")
+                Text("\(post.likes) likes")
                     .font(.system(size: 14, weight: .semibold))
                 
-                Text("batman").font(.system(size: 14, weight: .semibold)) + Text(" ") +  Text("All men have limits. They learn what they are and learn not to exceed them. I ignore mine.").font(.system(size: 15))
+                Text(post.ownerUserName).font(.system(size: 14, weight: .semibold)) + Text(" ") +  Text(post.caption).font(.system(size: 15))
                 
                 Text("2d")
                     .font(.system(size: 14))
@@ -81,7 +84,7 @@ struct FeedCell: View {
 
 struct FeedCell_Previews: PreviewProvider {
     static var previews: some View {
-        FeedCell()
+        FeedCell(post: .PostExample)
             .previewLayout(.sizeThatFits)
             .padding()
     }
