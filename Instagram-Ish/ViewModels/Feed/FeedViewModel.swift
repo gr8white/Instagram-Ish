@@ -16,7 +16,6 @@ class FeedViewModel: ObservableObject {
     
     func fetchPosts() {
         UserService.fetchAllFollowing { followedIDs in
-            print("followed", followedIDs)
             FIRESTORE_POSTS
                 .whereField("ownerUid", in: followedIDs)
                 .getDocuments { snapshot, _ in

@@ -21,7 +21,7 @@ struct ProfileView: View {
             VStack(spacing: 32) {
                 ProfileHeaderView(viewModel: viewModel)
                 
-                PostGridView()
+                PostGridView(posts: viewModel.posts)
             }
         }
     }

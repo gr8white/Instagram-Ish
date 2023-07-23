@@ -9,9 +9,11 @@ import Foundation
 
 class SearchViewModel: ObservableObject {
     @Published var users = [User]()
+    @Published var posts = [Post]()
     
     init() {
         fetchUsers()
+        fetchPosts()
     }
     
     func fetchUsers() {
@@ -29,5 +31,14 @@ class SearchViewModel: ObservableObject {
             $0.fullName.lowercased().contains(lowercasedQuery) ||
             $0.userName.lowercased().contains(lowercasedQuery)
         }
+    }
+    
+    func fetchPosts() {
+        FIRESTORE_POSTS
+            .getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else { return }
+                
+                self.posts = documents.compactMap({ try? $0.data(as: Post.self)})
+            }
     }
 }
