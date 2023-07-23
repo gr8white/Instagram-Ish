@@ -16,13 +16,16 @@ class FeedViewModel: ObservableObject {
     
     func fetchPosts() {
         UserService.fetchAllFollowing { followedIDs in
-            FIRESTORE_POSTS
-                .whereField("ownerUid", in: followedIDs)
-                .getDocuments { snapshot, _ in
-                    guard let documents = snapshot?.documents else { return }
-                    
-                    self.posts = documents.compactMap({ try? $0.data(as: Post.self)})
-                }
+            if !followedIDs.isEmpty {
+                FIRESTORE_POSTS
+//                    .whereField("ownerUid", in: followedIDs)
+                    .order(by: "timeStamp", descending: true)
+                    .getDocuments { snapshot, _ in
+                        guard let documents = snapshot?.documents else { return }
+                        
+                        self.posts = documents.compactMap({ try? $0.data(as: Post.self)})
+                    }
+            }
         }
     }
 }

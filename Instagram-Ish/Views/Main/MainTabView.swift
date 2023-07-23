@@ -64,7 +64,7 @@ struct MainTabView: View {
     var logOutButton: some View {
         Button {
             AuthenticationViewModel.shared.signOut() { signOutState in
-                print(signOutState)
+                selectedIndex = 0
             }
         } label: {
             Text("Sign Out")
