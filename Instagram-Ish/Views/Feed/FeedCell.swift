@@ -9,24 +9,28 @@ import SwiftUI
 import Kingfisher
 
 struct FeedCell: View {
-    var post: Post
+    @ObservedObject var viewModel: FeedCellViewModel
+    
+    init(post: Post) {
+        self.viewModel = FeedCellViewModel(post: post)
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                KFImage(URL(string: post.ownerProfileImageURL))
+                KFImage(URL(string: viewModel.post.ownerProfileImageURL))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 36, height: 36)
                     .clipped()
                     .cornerRadius(18)
                 
-                Text(post.ownerUserName)
+                Text(viewModel.post.ownerUserName)
                     .font(.system(size: 14, weight: .semibold))
             }
             .padding([.bottom, .leading], 8)
             
-            KFImage(URL(string: post.imageURL))
+            KFImage(URL(string: viewModel.post.imageURL))
                 .resizable()
                 .scaledToFill()
                 .frame(maxHeight: 340)
@@ -35,7 +39,8 @@ struct FeedCell: View {
             VStack(alignment: .leading, spacing: 3){
                 HStack(spacing: 16) {
                     Button {
-                        
+                        viewModel.post.didCurrentUserLike ?? false ?
+                            viewModel.unlike() : viewModel.like()
                     } label: {
                         Image(systemName: "heart")
                             .resizable()
@@ -68,10 +73,10 @@ struct FeedCell: View {
                 .foregroundColor(.black)
                 .padding(.vertical, 4)
                 
-                Text("\(post.likes) likes")
+                Text("\(viewModel.post.likes) likes")
                     .font(.system(size: 14, weight: .semibold))
                 
-                Text(post.ownerUserName).font(.system(size: 14, weight: .semibold)) + Text(" ") +  Text(post.caption).font(.system(size: 15))
+                Text(viewModel.post.ownerUserName).font(.system(size: 14, weight: .semibold)) + Text(" ") +  Text(viewModel.post.caption).font(.system(size: 15))
                 
                 Text("2d")
                     .font(.system(size: 14))

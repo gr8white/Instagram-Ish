@@ -58,6 +58,7 @@
 		1B9ED6B62A6C2EF300C1D32A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9ED6B52A6C2EF300C1D32A /* Post.swift */; };
 		1B9ED6B82A6C3BC300C1D32A /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9ED6B72A6C3BC300C1D32A /* TextArea.swift */; };
 		1B9ED6BC2A6CCA0100C1D32A /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9ED6BB2A6CCA0100C1D32A /* FeedViewModel.swift */; };
+		1B9ED6BE2A6DB9CB00C1D32A /* FeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9ED6BD2A6DB9CB00C1D32A /* FeedCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		1B9ED6B52A6C2EF300C1D32A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		1B9ED6B72A6C3BC300C1D32A /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		1B9ED6BB2A6CCA0100C1D32A /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		1B9ED6BD2A6DB9CB00C1D32A /* FeedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				1B9ED6BB2A6CCA0100C1D32A /* FeedViewModel.swift */,
+				1B9ED6BD2A6DB9CB00C1D32A /* FeedCellViewModel.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				1B9510982A69DBD9001D99E7 /* LandingViewModel.swift in Sources */,
 				1B41874D2A662A4900B22DD9 /* ProfileView.swift in Sources */,
 				1B4187612A674F6100B22DD9 /* UserStatView.swift in Sources */,
+				1B9ED6BE2A6DB9CB00C1D32A /* FeedCellViewModel.swift in Sources */,
 				1B4187572A673B9C00B22DD9 /* UserCell.swift in Sources */,
 				1B4187532A67378D00B22DD9 /* SearchBar.swift in Sources */,
 				1B41874B2A662A4000B22DD9 /* NotificationsView.swift in Sources */,
