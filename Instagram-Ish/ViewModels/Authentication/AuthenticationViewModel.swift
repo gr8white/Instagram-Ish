@@ -97,6 +97,7 @@ class AuthenticationViewModel: ObservableObject {
             try FIREBASE_AUTH.signOut()
             self.userSession = nil
             self.currentUser = nil
+            completion(.success)
         } catch {
             completion(.error(.internalError))
         }

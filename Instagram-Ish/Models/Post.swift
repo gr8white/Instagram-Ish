@@ -18,6 +18,8 @@ struct Post: Identifiable, Codable {
     var ownerUid: String
     var ownerProfileImageURL: String
     var ownerUserName: String
+    
+    var didCurrentUserLike: Bool? = false
 }
 
 extension Post {
