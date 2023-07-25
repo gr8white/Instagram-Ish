@@ -15,6 +15,8 @@ struct FeedCell: View {
         self.viewModel = FeedCellViewModel(post: post)
     }
     
+    var isLiked: Bool { viewModel.post.didCurrentUserLike ?? false }
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -39,14 +41,14 @@ struct FeedCell: View {
             VStack(alignment: .leading, spacing: 3){
                 HStack(spacing: 16) {
                     Button {
-                        viewModel.post.didCurrentUserLike ?? false ?
-                            viewModel.unlike() : viewModel.like()
+                        isLiked ? viewModel.unlike() : viewModel.like()
                     } label: {
-                        Image(systemName: "heart")
+                        Image(systemName: isLiked ? "heart.fill" : "heart")
                             .resizable()
                             .scaledToFill()
                             .frame(width: 20, height: 20)
                             .font(.system(size: 20))
+                            .foregroundColor(isLiked ? .red : .black)
                     }
                     
                     Button {
@@ -73,7 +75,7 @@ struct FeedCell: View {
                 .foregroundColor(.black)
                 .padding(.vertical, 4)
                 
-                Text("\(viewModel.post.likes) likes")
+                Text(viewModel.likeString)
                     .font(.system(size: 14, weight: .semibold))
                 
                 Text(viewModel.post.ownerUserName).font(.system(size: 14, weight: .semibold)) + Text(" ") +  Text(viewModel.post.caption).font(.system(size: 15))
