@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CommentCell: View {
     var body: some View {
-        HStack {
+        HStack (alignment: .center) {
             Image("batman")
                 .resizable()
                 .scaledToFill()

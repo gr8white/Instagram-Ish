@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CommentView: View {
+    @State var commentText: String = ""
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -19,8 +21,12 @@ struct CommentView: View {
             }
             .padding(.top)
             
-            
+            CommentInputView(inputText: $commentText, action: uploadComment)
         }
+    }
+    
+    func uploadComment() {
+        
     }
 }
 

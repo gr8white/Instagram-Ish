@@ -11,6 +11,7 @@
 		1B008A792A706D11003D0CF6 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B008A782A706D11003D0CF6 /* CommentView.swift */; };
 		1B008A7B2A706D1F003D0CF6 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B008A7A2A706D1F003D0CF6 /* CommentCell.swift */; };
 		1B008A7D2A706D49003D0CF6 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B008A7C2A706D49003D0CF6 /* CommentViewModel.swift */; };
+		1B008A7F2A706FF6003D0CF6 /* CommentInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B008A7E2A706FF6003D0CF6 /* CommentInputView.swift */; };
 		1B19FBF12A68B824002D521E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B19FBF02A68B824002D521E /* SignInView.swift */; };
 		1B19FBF32A68B82D002D521E /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B19FBF22A68B82D002D521E /* SignUpView.swift */; };
 		1B19FBF52A68B83B002D521E /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B19FBF42A68B83B002D521E /* ResetPasswordView.swift */; };
@@ -87,6 +88,7 @@
 		1B008A782A706D11003D0CF6 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		1B008A7A2A706D1F003D0CF6 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		1B008A7C2A706D49003D0CF6 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
+		1B008A7E2A706FF6003D0CF6 /* CommentInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputView.swift; sourceTree = "<group>"; };
 		1B19FBF02A68B824002D521E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		1B19FBF22A68B82D002D521E /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		1B19FBF42A68B83B002D521E /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				1B4187582A673BA800B22DD9 /* UserListView.swift */,
 				1B9510802A699986001D99E7 /* CustomTextField.swift */,
 				1B9ED6B72A6C3BC300C1D32A /* TextArea.swift */,
+				1B008A7E2A706FF6003D0CF6 /* CommentInputView.swift */,
 			);
 			path = SharedItems;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				1B4187552A6739DC00B22DD9 /* PostGridView.swift in Sources */,
 				1B19FBF32A68B82D002D521E /* SignUpView.swift in Sources */,
 				1B9ED6B22A6B813300C1D32A /* UserService.swift in Sources */,
+				1B008A7F2A706FF6003D0CF6 /* CommentInputView.swift in Sources */,
 				1B4187632A6750C000B22DD9 /* ProfileActionButton.swift in Sources */,
 				1B4187052A6627BF00B22DD9 /* Instagram_IshApp.swift in Sources */,
 				1B95109A2A69DC65001D99E7 /* SignUpViewModel.swift in Sources */,
