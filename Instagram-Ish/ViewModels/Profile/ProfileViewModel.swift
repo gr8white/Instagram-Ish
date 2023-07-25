@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class ProfileViewModel: ObservableObject {
     @Published var user: User
     @Published var posts: [Post] = []
@@ -21,6 +22,8 @@ class ProfileViewModel: ObservableObject {
         guard let uid = user.id else { return }
         
         UserService.follow(uid: uid) { _ in
+            NotificationViewModel.uploadNotification(toUid: uid, type: .follow)
+            
             self.user.isFollowed = true
         }
     }
