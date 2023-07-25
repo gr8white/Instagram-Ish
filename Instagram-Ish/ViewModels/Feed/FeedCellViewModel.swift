@@ -12,6 +12,7 @@ class FeedCellViewModel: ObservableObject {
     
     init(post: Post) {
         self.post = post
+        self.checkIfUserLikedPost()
     }
     
     var likeString: String {
@@ -37,10 +38,33 @@ class FeedCellViewModel: ObservableObject {
     }
     
     func unlike() {
-        print("unlike")
+        guard
+            let uid = AuthenticationViewModel.shared.userSession?.uid,
+            let postID = post.id
+        else { return }
+        
+        FIRESTORE_POSTS.document(postID).collection("post-likes")
+            .document(uid).delete { _ in
+                FIRESTORE_USERS.document(uid).collection("user-likes")
+                    .document(postID).delete { _ in
+                        FIRESTORE_POSTS.document(postID).updateData(["likes" : self.post.likes - 1])
+                        self.post.didCurrentUserLike = false
+                        self.post.likes -= 1
+                    }
+            }
     }
     
     func checkIfUserLikedPost() {
-          
+        guard
+            let uid = AuthenticationViewModel.shared.userSession?.uid,
+            let postID = post.id
+        else { return }
+        
+        FIRESTORE_USERS.document(uid).collection("user-likes")
+            .document(postID).getDocument { snapshot, _ in
+                guard let didLike = snapshot?.exists else { return }
+                
+                self.post.didCurrentUserLike = didLike
+            }
     }
 }
