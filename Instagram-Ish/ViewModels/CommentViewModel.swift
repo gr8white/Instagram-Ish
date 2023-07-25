@@ -12,9 +12,11 @@ import FirebaseFirestoreSwift
 
 class CommentViewModel: ObservableObject {
     private let post: Post
+    @Published var postComments: [Comment] = []
     
     init(post: Post) {
         self.post = post
+        fetchComments()
     }
     
     func uploadComment(commentText: String) {
@@ -45,6 +47,15 @@ class CommentViewModel: ObservableObject {
     }
     
     func fetchComments() {
+        guard let postID = post.id else { return }
         
+        let query = FIRESTORE_POSTS.document(postID).collection("post-comments")
+            .order(by: "timeStamp", descending: true)
+        
+        query.addSnapshotListener { snapshot, _ in
+            guard let addedDocs = snapshot?.documentChanges.filter({ $0.type == .added }) else { return }
+            
+            self.postComments.append(contentsOf: addedDocs.compactMap({ try? $0.document.data(as: Comment.self)}))
+        }
     }
 }
