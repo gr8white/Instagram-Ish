@@ -14,6 +14,7 @@ let FIRESTORE_USERS = FIRESTORE.collection("users")
 let FIRESTORE_FOLLOWERS = FIRESTORE.collection("followers")
 let FIRESTORE_FOLLOWING = FIRESTORE.collection("following")
 let FIRESTORE_POSTS = FIRESTORE.collection("posts")
+let FIRESTORE_NOTIFICATIONS = FIRESTORE.collection("notifications")
 
 let FIREBASE_AUTH = Auth.auth()
 

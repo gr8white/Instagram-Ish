@@ -10,6 +10,7 @@ import SwiftUI
 import Firebase
 import FirebaseFirestoreSwift
 
+@MainActor
 class CommentViewModel: ObservableObject {
     private let post: Post
     @Published var postComments: [Comment] = []
@@ -42,6 +43,8 @@ class CommentViewModel: ObservableObject {
                 if let error = error {
                     print("handle error")
                 }
+                
+                NotificationViewModel.uploadNotification(toUid: self.post.ownerUid, type: .comment, post: self.post)
             }
         }
     }

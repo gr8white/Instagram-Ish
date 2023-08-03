@@ -35,7 +35,7 @@ struct FeedCell: View {
             KFImage(URL(string: viewModel.post.imageURL))
                 .resizable()
                 .scaledToFill()
-                .frame(maxHeight: 340)
+                .frame(width: UIScreen.main.bounds.width, height: 340)
                 .clipped()
             
             VStack(alignment: .leading, spacing: 3){

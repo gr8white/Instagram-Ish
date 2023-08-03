@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class FeedCellViewModel: ObservableObject {
     @Published var post: Post
     
@@ -31,6 +32,9 @@ class FeedCellViewModel: ObservableObject {
                     .document(postID).setData([:]) { _ in
                         
                         FIRESTORE_POSTS.document(postID).updateData(["likes" : self.post.likes + 1])
+                        
+                        NotificationViewModel.uploadNotification(toUid: self.post.ownerUid, type: .like, post: self.post)
+                        
                         self.post.didCurrentUserLike = true
                         self.post.likes += 1
                     }

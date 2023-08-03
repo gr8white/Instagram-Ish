@@ -6,44 +6,66 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct NotificationCell: View {
-    @State private var showPostImge = false
+    @ObservedObject var viewModel: NotificationCellViewModel
+    
+    init(notification: Notification) {
+        self.viewModel = NotificationCellViewModel(notification: notification)
+    }
+    
+    var isFollowed: Bool { return viewModel.notification.isFollowed ?? false }
     
     var body: some View {
         HStack {
-            Image("batman")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 40, height: 40)
-                .clipShape(Circle())
-            
-            HStack(spacing: 0) {
-                Text("batman")
-                    .font(.system(size: 12, weight: .semibold))
-                Text(" liked one of your posts")
-                    .lineLimit(1)
-                    .font(.system(size: 13))
+            if let user = viewModel.notification.user {
+                NavigationLink {
+                    ProfileView(user: user)
+                } label: {
+                    KFImage(URL(string: viewModel.notification.profileImageURL))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                    
+                    HStack(spacing: 0) {
+                        Text(viewModel.notification.username)
+                            .font(.system(size: 12, weight: .semibold))
+                        Text(viewModel.notification.type.notificationMessage)
+                            .font(.system(size: 13))
+                    }
+                }
             }
             
             Spacer()
             
-            if showPostImge {
-                Image("batman")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 40, height: 40)
+            if viewModel.notification.type != .follow {
+                if let post = viewModel.notification.post {
+                    NavigationLink {
+                        FeedCell(post: post)
+                    } label: {
+                        KFImage(URL(string: post.imageURL))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 40, height: 40)
+                            .clipped()
+                    }
+                }
             } else {
                 Button {
-                    
+                    isFollowed ? viewModel.unfollow() : viewModel.follow()
                 } label: {
-                    Text("Following")
+                    Text(isFollowed ? "Following" : "Follow")
                         .padding(.horizontal, 20)
                         .padding(.vertical, 8)
-                        .background(Color(.systemBlue))
-                        .foregroundColor(.white)
-                        .clipShape(Capsule())
-                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(isFollowed ? .black : .white)
+                        .background(isFollowed ? Color.white : Color.blue)
+                        .cornerRadius(3)
+                        .overlay (
+                            RoundedRectangle(cornerRadius: 3)
+                                .stroke(isFollowed ? Color.gray : Color.blue, lineWidth: 1)
+                        )
                 }
 
             }
@@ -55,7 +77,7 @@ struct NotificationCell: View {
 
 struct NotificationCell_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationCell()
+        NotificationCell(notification: Notification.NotificationExample)
             .previewLayout(.sizeThatFits)
     }
 }
