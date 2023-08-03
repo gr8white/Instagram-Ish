@@ -9,42 +9,49 @@ import SwiftUI
 import Kingfisher
 
 struct NotificationCell: View {
-    let notification: Notification
+    @ObservedObject var viewModel: NotificationCellViewModel
+    
+    init(notification: Notification) {
+        self.viewModel = NotificationCellViewModel(notification: notification)
+    }
+    
+    var isFollowed: Bool { return viewModel.notification.isFollowed ?? false }
     
     var body: some View {
         HStack {
-            KFImage(URL(string: notification.profileImageURL))
+            KFImage(URL(string: viewModel.notification.profileImageURL))
                 .resizable()
                 .scaledToFill()
                 .frame(width: 40, height: 40)
                 .clipShape(Circle())
             
             HStack(spacing: 0) {
-                Text(notification.username)
+                Text(viewModel.notification.username)
                     .font(.system(size: 12, weight: .semibold))
-                Text(notification.type.notificationMessage)
-                    .lineLimit(1)
+                Text(viewModel.notification.type.notificationMessage)
                     .font(.system(size: 13))
             }
             
             Spacer()
             
-            if notification.type != .follow {
+            if viewModel.notification.type != .follow {
                 Image("batman")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 40, height: 40)
             } else {
                 Button {
-                    
+                    isFollowed ? viewModel.unfollow() : viewModel.follow()
                 } label: {
-                    Text("Following")
+                    Text(isFollowed ? "Following" : "Follow")
                         .padding(.horizontal, 20)
                         .padding(.vertical, 8)
-                        .background(Color(.systemBlue))
-                        .foregroundColor(.white)
-                        .clipShape(Capsule())
-                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(isFollowed ? .black : .white)
+                        .background(isFollowed ? Color.white : Color.blue)
+                        .overlay (
+                            RoundedRectangle(cornerRadius: 3)
+                                .stroke(isFollowed ? Color.gray : Color.blue, lineWidth: 1)
+                        )
                 }
 
             }

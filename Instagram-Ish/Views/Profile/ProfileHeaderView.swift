@@ -38,8 +38,13 @@ struct ProfileHeaderView: View {
                 .font(.system(size: 15))
                 .padding(.top, 1)
             
-            ProfileActionButton(viewModel: viewModel)
-
+            HStack {
+                Spacer()
+                
+                ProfileActionButton(viewModel: viewModel)
+                
+                Spacer()
+            }
         }
         .padding(.horizontal)
     }
