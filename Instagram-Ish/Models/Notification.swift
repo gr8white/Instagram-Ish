@@ -18,6 +18,7 @@ struct Notification: Identifiable, Codable {
     var uid: String
     var username: String
     var isFollowed: Bool? = false
+    var post: Post?
 }
 
 enum NotificationType: Int, Codable {

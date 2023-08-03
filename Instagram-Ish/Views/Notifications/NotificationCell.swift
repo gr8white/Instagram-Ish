@@ -35,10 +35,13 @@ struct NotificationCell: View {
             Spacer()
             
             if viewModel.notification.type != .follow {
-                Image("batman")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 40, height: 40)
+                if let post = viewModel.notification.post {
+                    KFImage(URL(string: post.imageURL))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .clipped()
+                }
             } else {
                 Button {
                     isFollowed ? viewModel.unfollow() : viewModel.follow()
@@ -48,6 +51,7 @@ struct NotificationCell: View {
                         .padding(.vertical, 8)
                         .foregroundColor(isFollowed ? .black : .white)
                         .background(isFollowed ? Color.white : Color.blue)
+                        .cornerRadius(3)
                         .overlay (
                             RoundedRectangle(cornerRadius: 3)
                                 .stroke(isFollowed ? Color.gray : Color.blue, lineWidth: 1)
