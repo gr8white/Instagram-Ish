@@ -20,6 +20,15 @@ struct Notification: Identifiable, Codable {
     var isFollowed: Bool? = false
     var post: Post?
     var user: User?
+    
+    var timestampString: String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.second, .minute, .hour, .day, .weekOfMonth]
+        formatter.maximumUnitCount = 1
+        formatter.unitsStyle = .abbreviated
+        
+        return formatter.string(from: timeStamp.dateValue(), to: Date()) ?? ""
+    }
 }
 
 enum NotificationType: Int, Codable {
