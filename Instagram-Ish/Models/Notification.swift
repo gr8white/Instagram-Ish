@@ -14,7 +14,7 @@ struct Notification: Identifiable, Codable {
     var postID: String?
     var profileImageURL: String
     var timeStamp: Timestamp
-    var type: Int
+    var type: NotificationType
     var uid: String
     var username: String
 }
@@ -38,7 +38,7 @@ extension Notification {
         postID: "",
         profileImageURL: "",
         timeStamp: Timestamp(date: Date()),
-        type: 0,
+        type: NotificationType(rawValue: 0)!,
         uid: "",
         username: ""
     )
