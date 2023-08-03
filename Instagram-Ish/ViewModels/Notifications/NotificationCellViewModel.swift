@@ -15,7 +15,6 @@ class NotificationCellViewModel: ObservableObject {
         self.notification = notification
         checkIfUserIsFollowed()
         fetchNotificationPost()
-        fetchNotificationUser()
     }
     
     func follow() {
@@ -44,12 +43,6 @@ class NotificationCellViewModel: ObservableObject {
         
         FIRESTORE_POSTS.document(postId).getDocument { snapshot, _ in
             self.notification.post = try? snapshot?.data(as: Post.self)
-        }
-    }
-    
-    func fetchNotificationUser() {
-        FIRESTORE_USERS.document(notification.uid).getDocument { snapshot, _ in
-            self.notification.user = try? snapshot?.data(as: User.self)
         }
     }
 }
