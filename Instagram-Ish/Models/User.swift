@@ -16,6 +16,7 @@ struct User: Identifiable, Codable {
     let profileImageURL: String
     var isFollowed: Bool? = false
     var stats: UserStats?
+    var bio: String?
     
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
