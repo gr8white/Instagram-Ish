@@ -56,7 +56,8 @@ class ProfileViewModel: ObservableObject {
             .getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else { return }
                 
-                self.posts = documents.compactMap({ try? $0.data(as: Post.self)})
+                let posts = documents.compactMap({ try? $0.data(as: Post.self)})
+                self.posts = posts.sorted(by: { $0.timeStamp.dateValue() < $1.timeStamp.dateValue() })
             }
     }
     
