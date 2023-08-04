@@ -20,6 +20,7 @@ class ProfileViewModel: ObservableObject {
         }
         checkIfUserIsFollowed()
         fetchPosts()
+        fetchUserStats()
     }
     
     func follow() {
@@ -64,7 +65,24 @@ class ProfileViewModel: ObservableObject {
     func fetchUser(_ uid: String) {
         FIRESTORE_USERS.document(uid).getDocument { snapshot, _ in
             self.user = try? snapshot?.data(as: User.self)
-            print(self.user)
+        }
+    }
+    
+    func fetchUserStats() {
+        guard let uid = user?.id else { return }
+        
+        FIRESTORE_FOLLOWING.document(uid).collection("user-following").getDocuments { snapshot, _ in
+            guard let following = snapshot?.documents.count else { return }
+            
+            FIRESTORE_FOLLOWERS.document(uid).collection("user-followers").getDocuments { snapshot, _ in
+                guard let followers = snapshot?.documents.count else { return }
+                
+                FIRESTORE_POSTS.whereField("ownerUid", isEqualTo: uid).getDocuments { snapshot, _ in
+                    guard let posts = snapshot?.documents.count else { return }
+                    
+                    self.user?.stats = UserStats(following: following, posts: posts, followers: followers)
+                }
+            }
         }
     }
 }
