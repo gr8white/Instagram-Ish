@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct EditProfileView: View {
+    @ObservedObject private var viewModel: EditProfileViewModel
+    @Environment(\.presentationMode) var mode
     @State var bio: String = ""
+    
+    init(user: User) {
+        self.viewModel = EditProfileViewModel(user: user)
+        if let currentBio = user.bio {
+            self.bio = currentBio
+        }
+    }
     var body: some View {
         ZStack(alignment: .leading) {
             VStack {
                 HStack {
                     Button {
-                        
+                        mode.wrappedValue.dismiss()
                     } label: {
                         Text("Cancel")
                     }
@@ -22,7 +31,9 @@ struct EditProfileView: View {
                     Spacer()
                     
                     Button {
-                        
+                        viewModel.saveUserData(bio: bio) {
+                            self.mode.wrappedValue.dismiss()
+                        }
                     } label: {
                         Text("Done").bold()
                     }
@@ -38,7 +49,7 @@ struct EditProfileView: View {
 
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView()
+        EditProfileView(user: User.UserExample)
             .previewLayout(.sizeThatFits)
     }
 }
