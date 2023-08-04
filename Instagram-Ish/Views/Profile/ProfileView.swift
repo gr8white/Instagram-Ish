@@ -10,8 +10,8 @@ import SwiftUI
 struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
     
-    init(user: User) {
-        self.viewModel = ProfileViewModel(user: user)
+    init(user: User?, userID: String? = "") {
+        self.viewModel = ProfileViewModel(user: user, userID: userID)
     }
     
     var body: some View {

@@ -15,6 +15,8 @@ struct User: Identifiable, Codable {
     let fullName: String
     let profileImageURL: String
     var isFollowed: Bool? = false
+    var stats: UserStats?
+    var bio: String?
     
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
@@ -30,5 +32,11 @@ struct User: Identifiable, Codable {
 }
 
 extension User {
-    static var UserExample = User(id: NSUUID().uuidString, email: "test@test.com", userName: "testUser", fullName: "Test User", profileImageURL: "")
+    static var UserExample = User(id: NSUUID().uuidString, email: "test@test.com", userName: "testUser", fullName: "Test User", profileImageURL: "", bio: "test")
+}
+
+struct UserStats: Codable {
+    var following: Int
+    var posts: Int
+    var followers: Int
 }

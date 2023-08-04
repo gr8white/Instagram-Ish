@@ -10,4 +10,6 @@ import Foundation
 class SignInViewModel: LandingViewModel {
     @Published var email: String = ""
     @Published var password: String = ""
+    
+    @Published var showResetPassword: Bool = false
 }

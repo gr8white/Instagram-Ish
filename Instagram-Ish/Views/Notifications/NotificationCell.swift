@@ -19,23 +19,22 @@ struct NotificationCell: View {
     
     var body: some View {
         HStack {
-            if let user = viewModel.notification.user {
-                NavigationLink {
-                    ProfileView(user: user)
-                } label: {
-                    KFImage(URL(string: viewModel.notification.profileImageURL))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 40, height: 40)
-                        .clipShape(Circle())
-                    
-                    HStack(spacing: 0) {
-                        Text(viewModel.notification.username)
-                            .font(.system(size: 12, weight: .semibold))
-                        Text(viewModel.notification.type.notificationMessage)
-                            .font(.system(size: 13))
-                    }
-                }
+            NavigationLink {
+                ProfileView(user: nil, userID: viewModel.notification.uid)
+            } label: {
+                KFImage(URL(string: viewModel.notification.profileImageURL))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 40, height: 40)
+                    .clipShape(Circle())
+                
+                Text(viewModel.notification.username)
+                    .font(.system(size: 12, weight: .semibold)) +
+                Text(viewModel.notification.type.notificationMessage)
+                    .font(.system(size: 13)) +
+                Text(viewModel.notification.timestampString)
+                    .foregroundColor(.gray)
+                    .font(.system(size: 11))
             }
             
             Spacer()

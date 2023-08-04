@@ -18,12 +18,12 @@ class FeedViewModel: ObservableObject {
         UserService.fetchAllFollowing { followedIDs in
             if !followedIDs.isEmpty {
                 FIRESTORE_POSTS
-//                    .whereField("ownerUid", in: followedIDs)
-                    .order(by: "timeStamp", descending: true)
+                    .whereField("ownerUid", in: followedIDs)
                     .getDocuments { snapshot, _ in
                         guard let documents = snapshot?.documents else { return }
                         
-                        self.posts = documents.compactMap({ try? $0.data(as: Post.self)})
+                        let posts = documents.compactMap({ try? $0.data(as: Post.self)})
+                        self.posts = posts.sorted(by: { $0.timeStamp.dateValue() > $1.timeStamp.dateValue() })
                     }
             }
         }
