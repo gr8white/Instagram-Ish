@@ -25,13 +25,15 @@ struct SignInView: View {
                 CustomTextField(text: $viewModel.email, placeholder: "Email", imageName: "envelope")
                     .textInputAutocapitalization(.never)
     
-                CustomTextField(text: $viewModel.password, placeholder: "Password", imageName: "lock", isSecured: true)
+                if !viewModel.showResetPassword {
+                    CustomTextField(text: $viewModel.password, placeholder: "Password", imageName: "lock", isSecured: true)
+                }
                 
                 HStack {
                     Spacer()
                     
                     Button {
-                        
+                        viewModel.showResetPassword.toggle()
                     } label: {
                         Text("Forgot Password?")
                             .font(.system(size: 13, weight: .semibold))
@@ -43,9 +45,13 @@ struct SignInView: View {
                     Spacer()
                     
                     Button {
-                        signIn(email: viewModel.email, password: viewModel.password)
+                        if !viewModel.showResetPassword {
+                            signIn(email: viewModel.email, password: viewModel.password)
+                        } else {
+                            resetPassword()
+                        }
                     } label: {
-                        Text("Sign In")
+                        Text(!viewModel.showResetPassword ? "Sign In" : "Send Reset Password Link")
                             .font(.headline)
                             .foregroundColor(.white)
                     }
@@ -100,6 +106,28 @@ struct SignInView: View {
                     viewModel.setErrorMessage(to: "The user account was not found.\nThis could happen if the user account has been deleted.")
                 default:
                     viewModel.setErrorMessage(to: "Unhandled error: \(signInError.rawValue)")
+                }
+            }
+        }
+    }
+    
+    func resetPassword() {
+        authVM.resetPassword(email: viewModel.email) { resetPasswordState in
+            switch resetPasswordState {
+            case .loading:
+                viewModel.resetErrorMessage()
+                viewModel.toggleLoading()
+            case .success:
+                print("success")
+            case .error(let resetPasswordError):
+                viewModel.toggleLoading()
+                switch resetPasswordError {
+                case .userNotFound:
+                    viewModel.setErrorMessage(to: "The user account was not found.\nThis could happen if the user account has been deleted.")
+                case .invalidEmail:
+                    viewModel.setErrorMessage(to: "The email address is malformed.")
+                default:
+                    viewModel.setErrorMessage(to: "Unhandled error: \(resetPasswordError.rawValue)")
                 }
             }
         }

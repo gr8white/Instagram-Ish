@@ -113,5 +113,11 @@ class AuthenticationViewModel: ObservableObject {
         }
     }
     
-    func resetPassword() { }
+    func resetPassword(email: String, completion: @escaping (AuthRequestState) -> Void) {
+        FIREBASE_AUTH.sendPasswordReset(withEmail: email) { error in
+            if let error = error as? NSError, let authError = AuthErrorCode.Code(rawValue: error.code) {
+                completion(.error(authError))
+            }
+        }
+    }
 }
