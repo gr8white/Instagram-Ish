@@ -16,6 +16,7 @@
 		1B008A832A708B43003D0CF6 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B008A822A708B43003D0CF6 /* Notification.swift */; };
 		1B008A852A7B29A3003D0CF6 /* NotificationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B008A842A7B29A3003D0CF6 /* NotificationCellViewModel.swift */; };
 		1B008A872A7C6C3F003D0CF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B008A862A7C6C3F003D0CF6 /* GoogleService-Info.plist */; };
+		1B07256C2A7C839E007DB802 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07256B2A7C839E007DB802 /* LazyView.swift */; };
 		1B19FBF12A68B824002D521E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B19FBF02A68B824002D521E /* SignInView.swift */; };
 		1B19FBF32A68B82D002D521E /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B19FBF22A68B82D002D521E /* SignUpView.swift */; };
 		1B19FBF52A68B83B002D521E /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B19FBF42A68B83B002D521E /* ResetPasswordView.swift */; };
@@ -96,6 +97,7 @@
 		1B008A822A708B43003D0CF6 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		1B008A842A7B29A3003D0CF6 /* NotificationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCellViewModel.swift; sourceTree = "<group>"; };
 		1B008A862A7C6C3F003D0CF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1B07256B2A7C839E007DB802 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		1B19FBF02A68B824002D521E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		1B19FBF22A68B82D002D521E /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		1B19FBF42A68B83B002D521E /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				1B41875A2A6741CB00B22DD9 /* Extensions.swift */,
 				1B4187642A68A7FC00B22DD9 /* ImagePicker.swift */,
 				1B95109F2A6B1D42001D99E7 /* Constants.swift */,
+				1B07256B2A7C839E007DB802 /* LazyView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				1B9ED6BE2A6DB9CB00C1D32A /* FeedCellViewModel.swift in Sources */,
 				1B4187572A673B9C00B22DD9 /* UserCell.swift in Sources */,
 				1B008A762A706CD4003D0CF6 /* Comment.swift in Sources */,
+				1B07256C2A7C839E007DB802 /* LazyView.swift in Sources */,
 				1B4187532A67378D00B22DD9 /* SearchBar.swift in Sources */,
 				1B41874B2A662A4000B22DD9 /* NotificationsView.swift in Sources */,
 				1B4187512A662E4400B22DD9 /* FeedCell.swift in Sources */,
