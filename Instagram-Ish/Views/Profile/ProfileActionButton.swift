@@ -13,7 +13,7 @@ struct ProfileActionButton: View {
     @State var showEditProfile: Bool = false
     
     var body: some View {
-        if let user = viewModel.user, user.isCurrentUser {
+        if let user = viewModel.user {
             Button {
                 showEditProfile.toggle()
             } label: {
@@ -26,7 +26,7 @@ struct ProfileActionButton: View {
                             .stroke(Color.gray, lineWidth: 1)
                     )
             }.sheet(isPresented: $showEditProfile) {
-                EditProfileView(user: user)
+                EditProfileView(user: Binding { user } set: { viewModel.user = $0 })
             }
         } else {
             HStack {
